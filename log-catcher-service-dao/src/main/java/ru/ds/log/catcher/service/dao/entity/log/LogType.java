@@ -1,4 +1,4 @@
-package ru.ds.log.catcher.service.core.log;
+package ru.ds.log.catcher.service.dao.entity.log;
 
 public enum LogType {
 

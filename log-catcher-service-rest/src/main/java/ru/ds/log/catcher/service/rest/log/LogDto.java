@@ -2,7 +2,7 @@ package ru.ds.log.catcher.service.rest.log;
 
 import lombok.*;
 import lombok.experimental.FieldDefaults;
-import ru.ds.log.catcher.service.core.log.LogType;
+import ru.ds.log.catcher.service.dao.entity.log.LogType;
 import ru.ds.log.catcher.service.rest.system.SystemDto;
 
 import java.time.LocalDateTime;

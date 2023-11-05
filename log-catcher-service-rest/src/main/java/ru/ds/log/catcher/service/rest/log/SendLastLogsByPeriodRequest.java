@@ -2,6 +2,7 @@ package ru.ds.log.catcher.service.rest.log;
 
 import lombok.*;
 import lombok.experimental.FieldDefaults;
+import ru.ds.log.catcher.service.rest.system.SystemDto;
 
 import java.util.List;
 
@@ -13,4 +14,6 @@ import java.util.List;
 public class SendLastLogsByPeriodRequest {
 
     List<LogDto> logs;
+
+    SystemDto system;
 }

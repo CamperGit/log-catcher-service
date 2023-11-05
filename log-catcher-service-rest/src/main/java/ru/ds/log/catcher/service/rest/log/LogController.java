@@ -12,7 +12,12 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import ru.ds.log.catcher.service.common.orika.DefaultMapper;
 import ru.ds.log.catcher.service.common.orika.OrikaMapper;
+import ru.ds.log.catcher.service.core.log.LogUploaderService;
+import ru.ds.log.catcher.service.dao.entity.log.LogEntity;
+import ru.ds.log.catcher.service.dao.entity.system.SystemEntity;
 import ru.ds.log.catcher.service.rest.common.CommonResponse;
+
+import java.util.List;
 
 @Validated
 @RestController
@@ -25,12 +30,17 @@ public class LogController {
     @DefaultMapper
     OrikaMapper mapper;
 
+    LogUploaderService logUploaderService;
+
     @PostMapping("/upload")
     @ApiOperation("Загрузка логов")
     public ResponseEntity<CommonResponse> create(
             @ApiParam(value = "Запрос на загрузку логов")
             @RequestBody SendLastLogsByPeriodRequest request
     ) {
+        SystemEntity system = mapper.map(request.getSystem(), SystemEntity.class);
+        List<LogEntity> logs = mapper.mapAsList(request.getLogs(), LogEntity.class);
+        logUploaderService.uploadLogsForSystem(system, logs);
         return ResponseEntity.ok(CommonResponse.builder().build());
     }
 }

@@ -2,9 +2,6 @@ package ru.ds.log.catcher.service.rest.system;
 
 import lombok.*;
 import lombok.experimental.FieldDefaults;
-import ru.ds.log.catcher.service.core.log.LogType;
-
-import java.time.LocalDateTime;
 
 @Getter
 @Setter
