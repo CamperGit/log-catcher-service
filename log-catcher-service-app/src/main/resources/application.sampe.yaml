@@ -25,3 +25,10 @@ telegram:
   bot:
     username: username
     token: token
+
+security:
+  username: user
+  password: password
+  roles:
+    - USER
+    - ADMIN
