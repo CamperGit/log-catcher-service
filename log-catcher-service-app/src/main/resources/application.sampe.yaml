@@ -1,0 +1,27 @@
+server:
+  port: 8080
+  error:
+    include-stacktrace: always
+    include-exception: true
+
+spring:
+  liquibase:
+    enabled: true
+    change-log: classpath:/liquibase/master.xml
+
+  datasource:
+    url: jdbc:postgresql://url:5432/db?stringtype=unspecified
+    password: password
+    username: user
+    hikari:
+      idle-timeout: 120000
+      leak-detection-threshold: 300000
+      max-lifetime: 300000
+
+locale:
+  tag: ru-RU
+
+telegram:
+  bot:
+    username: username
+    token: token

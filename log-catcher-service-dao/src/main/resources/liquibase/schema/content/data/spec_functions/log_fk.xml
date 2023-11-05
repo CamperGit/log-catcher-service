@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+    <changeSet id="content_log_fk_2023-05-11_17:07" author="Camper" context="all">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <foreignKeyConstraintExists
+                        foreignKeyTableName="log"
+                        foreignKeyName="fk_log_system_id"/>
+            </not>
+        </preConditions>
+
+        <addForeignKeyConstraint baseTableName="log"
+                                 baseColumnNames="system_id"
+                                 referencedTableName="system"
+                                 referencedColumnNames="id"
+                                 foreignKeyName="fk_log_system_id"
+                                 onUpdate="CASCADE"
+                                 onDelete="RESTRICT"
+                                 validate="true"
+                                 constraintName="fk_log_system_id"/>
+    </changeSet>
+</databaseChangeLog>

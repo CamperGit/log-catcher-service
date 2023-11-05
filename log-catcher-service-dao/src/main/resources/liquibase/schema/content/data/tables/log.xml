@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+    <changeSet id="content_tables_log_create_2023-05-11_17:03" author="Camper">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="log"/>
+            </not>
+        </preConditions>
+
+        <createTable tableName="log" remarks="log">
+            <column name="id" type="BIGINT" remarks="id" defaultValue="nextval('log_id_seq')">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="type" type="VARCHAR(255)" remarks="type">
+                <constraints nullable="false"/>
+            </column>
+            <column name="clazz" type="VARCHAR(500)" remarks="clazz">
+                <constraints nullable="false"/>
+            </column>
+            <column name="thread" type="VARCHAR(255)" remarks="thread">
+                <constraints nullable="false"/>
+            </column>
+            <column name="message" type="VARCHAR(10000)" remarks="message">
+                <constraints nullable="false"/>
+            </column>
+            <column name="time" type="TIMESTAMP WITHOUT TIME ZONE" remarks="time">
+                <constraints nullable="false"/>
+            </column>
+            <column name="system_id" type="BIGINT" remarks="system_id">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <rollback>
+            <dropTable tableName="log"/>
+        </rollback>
+    </changeSet>
+</databaseChangeLog>

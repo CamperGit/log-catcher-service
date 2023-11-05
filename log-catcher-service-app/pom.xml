@@ -1,0 +1,51 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>ru.ds</groupId>
+        <artifactId>log-catcher-service</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
+    <artifactId>log-catcher-service-app</artifactId>
+    <name>Archetype - log-catcher-service-app</name>
+
+    <properties>
+        <java.version>11</java.version>
+
+        <log-catcher-service-rest.version>1.0.0</log-catcher-service-rest.version>
+    </properties>
+
+    <build>
+        <finalName>${project.artifactId}</finalName>
+
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+
+            <plugin>
+                <groupId>com.google.cloud.tools</groupId>
+                <artifactId>jib-maven-plugin</artifactId>
+                <configuration>
+                    <container>
+                        <mainClass>ru.ds.log.catcher.service.app.LogCatcherServiceApplication</mainClass>
+                    </container>
+
+                    <to>
+                        <image>${image.repo}/log-catcher-work/${project.artifactId}:${image.tag}</image>
+                    </to>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>ru.ds</groupId>
+            <artifactId>log-catcher-service-rest</artifactId>
+            <version>${log-catcher-service-rest.version}</version>
+        </dependency>
+    </dependencies>
+</project>
