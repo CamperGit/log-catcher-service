@@ -21,6 +21,8 @@ public class LogDto {
 
     LogType type;
 
+    Long pid;
+
     String clazz;
 
     String thread;

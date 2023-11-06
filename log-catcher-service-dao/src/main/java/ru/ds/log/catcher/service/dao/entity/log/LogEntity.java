@@ -28,6 +28,9 @@ public class LogEntity {
     @Column(name = "type")
     LogType type;
 
+    @Column(name = "pid")
+    Long pid;
+
     @Column(name = "clazz")
     String clazz;
 

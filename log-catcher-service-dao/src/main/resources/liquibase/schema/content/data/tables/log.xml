@@ -17,6 +17,9 @@
             <column name="type" type="VARCHAR(255)" remarks="type">
                 <constraints nullable="false"/>
             </column>
+            <column name="pid" type="BIGINT" remarks="pid">
+                <constraints nullable="false"/>
+            </column>
             <column name="clazz" type="VARCHAR(500)" remarks="clazz">
                 <constraints nullable="false"/>
             </column>
